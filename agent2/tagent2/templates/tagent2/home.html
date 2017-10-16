@@ -1,0 +1,22 @@
+
+
+{% block content %}
+  <ul>
+    <li>
+      <a href="{% url 'simple_upload' %}">Simple Upload</a>
+    </li>
+    <li>
+      <a href="{% url 'model_form_upload' %}">Model Form Upload</a>
+    </li>
+  </ul>
+
+  <p>Uploaded files:</p>
+  <ul>
+    {% for obj in media%}
+      <li>
+        <a href="{{ obj.image.url }}">{{ obj.image.name }}</a>
+        <small>(Uploaded at: {{ obj.uploaded_at }})</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

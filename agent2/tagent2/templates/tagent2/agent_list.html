@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+
+    <h2>Welcome  <small>{{ user.username }}</small>!</h2>
+
+    <h2>Here are all user profiles: </h2>
+
+    <div>
+        <ul>
+            {% for agent in object_list %}
+                <li>{{ agent.first_name }} {{ agent.last_name }} {{agent.age}} {{agent.education}} {{agent.company_name}} {{agent.experence}} {{ agent.agent_notes }} {{ agent.mobile_number }} {{ agent.phone_number }} {{ agent.email_id }} {{ agent.media_type }} {{ agent.image }}| <a
+                        href="{% url 'agent-update' agent.pk %}">edit</a>
+                    <a href="{% url 'agent-delete' agent.pk %}">delete</a>
+                </li>
+                </ul>
+                    <img src="media/image.jpg" width="300">
+            {% endfor %}
+
+
+        <p>
+            <a href="{% url 'agent-add' %}">add a agent</a>
+        </p>
+    </div>
+{% endblock %}
